@@ -1,0 +1,85 @@
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import axios from 'axios';
+import './LaptopDetails.css'
+
+const AjouterRemplacement = () => {
+
+const laptop = useSelector(state => state.Laptop)
+const Batteries = useSelector(state => state.Laptop.Batteries)
+const Technicians = useSelector(state => state.Laptop.Technicians)
+
+const [form,setForm]=useState({
+ id: laptop.id,
+ old_battery_id: laptop.CurrentBattery.Id,
+ new_battery_id: "",
+ replacement_date: "",
+ technician_id: "",
+ reason: ""
+});
+
+function handleChange(e){
+ setForm({...form,[e.target.name]:e.target.value})
+}
+
+async function handleSubmit(e){
+ e.preventDefault()
+
+ try{
+   const response = await axios.post(
+    "http://localhost:8000/api/AddReplacement",
+    form
+   )
+   console.log(response)
+
+ }catch(err){
+   console.log(err)
+ }
+}
+
+return(
+<div className="container-remplacement">
+
+<h1>Add Replacement</h1>
+
+<form onSubmit={handleSubmit}>
+
+<select name="new_battery_id" onChange={handleChange}>
+{Batteries.map(battery=>(
+<option key={battery.id} value={battery.id}>
+{battery.Serial}
+</option>
+))}
+</select>
+{/* input */}
+<select name="technician_id" onChange={handleChange}>   
+{Technicians.map(tech=>(
+<option key={tech.id} value={tech.id}>
+{tech.Name}
+</option>
+))}
+</select>
+
+<input type='date' name='replacement_date' onChange={handleChange} />
+<input type='text' name='reason' onChange={handleChange} />
+
+<button type='submit'>Add Replacement</button>
+
+</form>
+<div className="preview-box">
+<h2>Replacement Preview</h2>
+{/* nota: we  dont need to put laptop.form.id...etc, we just  put form.id....etc */}
+<p><span>ID:</span> {form.id}</p>
+<p><span>Old Battery:</span> {form.old_battery_id}</p>
+<p><span>New Battery:</span> {form.new_battery_id}</p>
+<p><span>Date:</span> {form.replacement_date}</p>
+<p><span>Technician:</span> {form.technician_id}</p>
+<p><span>Reason:</span> {form.reason}</p>
+
+</div>
+</div>
+)
+
+}
+
+export default AjouterRemplacement;
