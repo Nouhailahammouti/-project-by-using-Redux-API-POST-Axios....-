@@ -1,0 +1,175 @@
+/* Main Container */
+.laptop-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #1e1e2f;
+  color: #f5f5f5;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Titles */
+.laptop-container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ffffff;
+  border-bottom: 2px solid #444;
+  padding-bottom: 8px;
+}
+
+/* Paragraphs */
+.laptop-container p {
+  background: #2a2a3d;
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin: 8px 0;
+  transition: 0.2s ease;
+}
+
+/* Hover effect */
+.laptop-container p:hover {
+  background: #343450;
+  transform: translateX(3px);
+}
+
+/* Battery Section */
+.battery-section {
+  margin-top: 20px;
+  padding: 15px;
+  background: #252538;
+  border-radius: 12px;
+  border: 1px solid #3a3a55;
+}
+
+/* Status badge */
+.status-good {
+  background: #3bd671;
+  color: #000;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .laptop-container {
+    margin: 20px;
+    padding: 20px;
+  }
+}
+/* Container */
+.container-remplacement {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #1e1e2f;
+  color: #f5f5f5;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Title */
+.container-remplacement h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #444;
+  padding-bottom: 10px;
+}
+
+/* Form */
+.container-remplacement form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Inputs & Select */
+.container-remplacement select,
+.container-remplacement input {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: #2a2a3d;
+  color: white;
+  outline: none;
+  transition: 0.2s;
+}
+
+/* Hover */
+.container-remplacement select:hover,
+.container-remplacement input:hover {
+  background: #343450;
+}
+
+/* Focus */
+.container-remplacement select:focus,
+.container-remplacement input:focus {
+  border: 1px solid #6c63ff;
+}
+
+/* Button */
+.container-remplacement button {
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: #6c63ff;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Button hover */
+.container-remplacement button:hover {
+  background: #5548e6;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width:600px){
+  .container-remplacement{
+    margin: 20px;
+  }
+}
+
+/* Preview Box */
+.preview-box {
+  margin-top: 20px;
+  padding: 15px;          /* smaller padding */
+  background: #252538;
+  border-radius: 10px;
+  border: 1px solid #3a3a55;
+}
+
+/* Title */
+.preview-box h2 {
+  text-align: center;
+  margin-bottom: 12px;    /* slightly smaller space */
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+/* Items */
+.preview-box p {
+  background: #2a2a3d;
+  padding: 6px 10px;      /* smaller padding top/bottom & left/right */
+  border-radius: 6px;
+  margin: 5px 0;           /* less vertical spacing */
+  transition: 0.2s;
+  font-size: 0.95rem;
+}
+
+/* Hover */
+.preview-box p:hover {
+  background: #343450;
+  transform: translateX(2px); /* subtle shift */
+}
+
+/* Labels */
+.preview-box span {
+  font-weight: bold;
+  color: #6c63ff;
+}
