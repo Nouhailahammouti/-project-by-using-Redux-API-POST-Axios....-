@@ -1,0 +1,40 @@
+1/
+import  React,{usestate} from  'react';
+
+expot  defual  function   evenemet (evenmet){
+
+const [event,setEvent]=usestate();
+const totalGeneral = evenements.reduce((sum, ev) => sum + (ev.cout_journalier * ev.durée), 0);
+
+ retune(
+<th>them</>
+<th>date debut</>
+<th>date fin</>
+<th>description</>
+<th>coute journe</>
+<th>durre</>
+<th>tota;</>
+  (event .map(ev.id)=>
+   <tr key={id}>
+   < td>{ev.them}</td>
+   < td>{ev.date debut}</td>
+      < td>{ev.date fin}</td>
+         < td>{ev.coute joure}</td>
+        <td> {ev.cout_journalier * ev.durée}</>
+            < td>{ev.durre}</td>
+<td>{totalGeneral}</>    )       )};
+
+
+
+2/
+
+import  evenement  from '/.Evenmeent'
+  export defualt function export (  {export} ){
+
+   retun(
+ <lu>
+ <li>{export.nomecompet}
+
+ <Evenemet  evenement{export.evenemet} </></>
+   )
+  }
