@@ -24,8 +24,6 @@ const totalGeneral = evenements.reduce((sum, ev) => sum + (ev.cout_journalier * 
             < td>{ev.durre}</td>
 <td>{totalGeneral}</>    )       )};
 
-
-
 2/
 
 import  evenement  from '/.Evenmeent'
@@ -37,4 +35,125 @@ import  evenement  from '/.Evenmeent'
 
  <Evenemet  evenement{export.evenemet} </></>
    )
-  }
+  };
+
+
+3/  import  evenement  from '/.Evenmeent';
+import   export from './Export';
+import  datat from './Data.js'
+
+
+
+export  defalt   function  expert1(){
+ 
+
+
+retun  (
+<lu>
+
+(expertdata.map(exp.id)=>
+<Expert
+<li key={id}>
+expert={expert}
+)/>
+
+</>
+)};
+
+
+
+4/
+import  React,{usestate} from  'react';
+
+ export    deafult  function  Formular(){
+cont[Them,setthem]=UseState('');
+cont[datefin,setdatefin]=UseState('');
+cont[datdebut,setdatedebut]=UseState('');
+cont[cout,setcout]=UseState('');
+cont[expert,setexper]=UseState('');
+
+
+
+  cont  handelsubmit= (e)=>{
+e.prevmnetdefaul
+  };
+
+cont dategeneral=new date (datedebut)- new date(datefin)/(1000*60*60*24;
+conttota=  cout*dategeneral
+
+ retun(
+
+<div>
+<input type='text'    value ={them} onchange={(e)=>setthem(e.trager.value)}
+<input type='date'    value ={datedebut} onchange={(e)=>setdatdebut(e.trager.value)}
+<input type='date'    value ={datefin} onchange={(e)=>setdatefin(e.trager.value)}
+<input type='number'    value ={cout} onchange={(e)=>setcout(e.trager.value)}
+<input type='text'    value ={expert} onchange={(e)=>setexpert(e.trager.value)}
+
+
+<butoon type="submit"  onclick={handelsubmit}>Confierm</>
+
+
+<p> l'expert:{them},{datedebut},{detfin},{cout},{expert}</>
+</>
+
+ )
+
+ };
+5/ import  React,{useState,useEffect} from  'react';
+import  axios  from  axios
+  expert  defualt  function Expert2(){
+    cont [expert,Setexpert]=useState('')
+
+Useeffect(()=>
+{
+axios.get ('http://localhost:8000/experts2')
+.then(respo=> setExpert respo.data)})
+.catch(err={
+consol.error('error')})
+},
+
+
+return(
+
+<div>
+
+(exper.map(ex,id)=>
+<ul  key={id}>
+<ul>{ex.id}</ul>
+<ul>{ex.nomecompet}</ul>
+
+(ex.evenemet.map(ev,index)=>
+<ul key{index}>
+<ul>{ev.them}</>
+
+
+)
+)
+</>
+)
+};
+export  defaul  expert2;
+
+
+6/
+
+import {BrouserRout as Roueter,Routes,Route} from 'react-router-dom'
+import  export1  from  './Export1';
+import  export2  from  './Export2';
+import  formaular  from './Formular';
+
+<Router>
+<Routes>
+<Route pathe='/ formaular'  element={< formaular/}/>
+<Route pathe='/export1 '  element={< export1/}/>
+<Route pathe='/ export2'  element={< export2/}/>
+</>
+</>
+
+
+
+
+
+
+
