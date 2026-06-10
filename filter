@@ -1,0 +1,37 @@
+import React, { useState } from 'react';
+
+function FiltrerParCategorie() {
+  // مصفوفة البيانات الأصلية
+  const produits = [
+    { id: 1, nom: "PC Dell", categorie: "Electronique" },
+    { id: 2, nom: "Livre React", categorie: "Livres" },
+    { id: 3, nom: "Souris", categorie: "Electronique" }
+  ];
+
+  // 1. الـ State لتخزين الفئة المختارة
+  const [choix, setChoix] = useState('');
+
+  // 2. السطر السحري للتصفية: إذا كان الاختيار فارغاً نعرض كل شيء، وإلا نُصفي بناءً على الشرط
+  const listeFiltrée = choix === "" 
+    ? produits 
+    : produits.filter(prod => prod.categorie === choix);
+
+  return (
+    <div>
+      <label>Choisir une catégorie: </label>
+      {/* ربط القائمة المنسدلة بالـ State وعامل التغيير onChange */}
+      <select value={choix} onChange={(e) => setChoix(e.target.value)}>
+        <option value="">Tous les produits</option>
+        <option value="Electronique">Electronique</option>
+        <option value="Livres">Livres</option>
+      </select>
+
+      {/* عرض القائمة المصفاة بـ .map */}
+      <ul>
+        {listeFiltrée.map(prod => (
+          <li key={prod.id}>{prod.nom} ({prod.categorie})</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
