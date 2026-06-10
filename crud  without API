@@ -1,0 +1,87 @@
+import React, { useState } from "react";
+
+function CrudApp() {
+
+  // البيانات
+  const [data, setData] = useState([
+    { id: 1, nom: "PC Dell" },
+    { id: 2, nom: "Souris" }
+  ]);
+
+  // input
+  const [nom, setNom] = useState("");
+
+  // ID للتعديل
+  const [editId, setEditId] = useState(null);
+
+  // ➕ CREATE
+  const ajouter = () => {
+    const newItem = {
+      id: Date.now(),
+      nom
+    };
+    setData([...data, newItem]);
+    setNom("");
+  };
+
+  // ❌ DELETE
+  const supprimer = (id) => {
+    setData(data.filter(item => item.id !== id));
+  };
+
+  // ✏️ EDIT (prepare)
+  const modifier = (item) => {
+    setNom(item.nom);
+    setEditId(item.id);
+  };
+
+  // 💾 UPDATE
+  const update = () => {
+    setData(
+      data.map(item =>
+        item.id === editId
+          ? { ...item, nom }
+          : item
+      )
+    );
+    setNom("");
+    setEditId(null);
+  };
+
+  return (
+    <div>
+
+      <input
+        value={nom}
+        onChange={(e) => setNom(e.target.value)}
+        placeholder="Nom produit"
+      />
+
+      {editId ? (
+        <button onClick={update}>Update</button>
+      ) : (
+        <button onClick={ajouter}>Ajouter</button>
+      )}
+
+      <ul>
+        {data.map(item => (
+          <li key={item.id}>
+            {item.nom}
+
+            <button onClick={() => modifier(item)}>
+              Edit
+            </button>
+
+            <button onClick={() => supprimer(item.id)}>
+              Delete
+            </button>
+
+          </li>
+        ))}
+      </ul>
+
+    </div>
+  );
+}
+
+export default CrudApp;
